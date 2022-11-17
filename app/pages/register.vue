@@ -15,7 +15,7 @@ import axios from 'axios'
 
 export default {
   name: 'RegisterPage',
-  layout: 'template',
+  layout: 'empty',
   data() {
     return {
       id: "",
@@ -55,8 +55,8 @@ export default {
       }
 
       location.href = "/login"
-
     },
+    
     async isDuplicated() {
       const response = await this.$axios({
         method: "get",

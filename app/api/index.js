@@ -16,6 +16,9 @@ app.use(morgan("dev"))
 const user = require('./routes/user')
 app.use("/", user);
 
+const movie = require('./routes/movie')
+app.use("/movie/", movie);
+
 app.get("/test", (req, res) => {
     setTimeout(() => {
         res.send("eded")

@@ -12,7 +12,7 @@
 <script>
 export default {
   name: 'LoginPage',
-  layout: 'template',
+  layout: 'empty',
   methods: {
     login() {
       

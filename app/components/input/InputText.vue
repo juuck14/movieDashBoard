@@ -1,8 +1,8 @@
 <template>
     <div :style="'position: relative; margin-bottom: ' + this.marginBottom" >
-        <input ref="inputText" :type="type" class="inputText" @change="changeValue"
-        @focusin="togglePlaceholder('in')" @focusout="togglePlaceholder('out')"/>
-        <div ref="dynamicPlaceholder" class="dynamicPlaceholder">{{ this.placeholder }}</div>
+        <input ref="inputText" :type="type" class="inputText" @input="$emit('input', $event.target.value)" 
+        :style="this.placeholder ? ';' : ';padding-top: 0'" @focusin="togglePlaceholder('in')" @focusout="togglePlaceholder('out')"/>
+        <div ref="dynamicPlaceholder" :class="'dynamicPlaceholder' + (this.placeholder ? '' : ' d-none')">{{ this.placeholder }}</div>
     </div>
 </template>
 
@@ -14,9 +14,6 @@ export default {
         togglePlaceholder(type) {
             if(type === "in") this.$refs.dynamicPlaceholder.classList.add("on")
             else if(this.$refs.inputText.value == '') this.$refs.dynamicPlaceholder.classList.remove("on")
-        },
-        changeValue() {
-            this.$emit("input", this.$refs.inputText.value)
         }
     }
 }

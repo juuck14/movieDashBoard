@@ -16,11 +16,17 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    "~node_modules/bootstrap/dist/css/bootstrap.min.css"
+    "~node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "~styles/common.scss",
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~plugins/vue-toast-notification'],
+  plugins: [
+    '~plugins/vue-toast-notification',
+    '~plugins/fontawesome.js',
+    '~plugins/common.js'
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
