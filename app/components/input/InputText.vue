@@ -1,7 +1,7 @@
 <template>
     <div :style="'position: relative; margin-bottom: ' + this.marginBottom" >
-        <input ref="inputText" :type="type" class="inputText" @input="$emit('input', $event.target.value)" 
-        :style="this.placeholder ? ';' : ';padding-top: 0'" @focusin="togglePlaceholder('in')" @focusout="togglePlaceholder('out')"/>
+        <input ref="inputText" :type="type" class="inputText" @input="$emit('input', $event.target.value)" :placeholder="this.realPlaceholder"
+        :style="this.placeholder ? ';' : ';padding-top: 0;' + this.styles" @focusin="togglePlaceholder('in')" @focusout="togglePlaceholder('out')"/>
         <div ref="dynamicPlaceholder" :class="'dynamicPlaceholder' + (this.placeholder ? '' : ' d-none')">{{ this.placeholder }}</div>
     </div>
 </template>
@@ -9,7 +9,7 @@
 <script>
 export default {
     name: "inputText",
-    props: ["type", "marginBottom", "placeholder", "value"],
+    props: ["type", "marginBottom", "placeholder", "value", "realPlaceholder", "styles"],
     methods: {
         togglePlaceholder(type) {
             if(type === "in") this.$refs.dynamicPlaceholder.classList.add("on")

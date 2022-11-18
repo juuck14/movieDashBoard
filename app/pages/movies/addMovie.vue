@@ -40,8 +40,6 @@ export default {
         setImage(val) {
             this.moviePoster = val
         }
-
-
     }
 }
 </script>
