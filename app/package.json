@@ -9,7 +9,8 @@
     "generate": "nuxt generate",
     "lint:prettier": "prettier --check .",
     "lint": "npm run lint:prettier",
-    "lintfix": "prettier --write --list-different ."
+    "lintfix": "prettier --write --list-different .",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
@@ -24,13 +25,17 @@
     "core-js": "^3.25.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-mysql-session": "^2.1.8",
+    "express-session": "^1.17.3",
     "fibers": "^5.0.3",
     "fix-esm": "^1.0.1",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "nuxt": "^2.15.8",
+    "nuxt-socket-io": "^2.0.3",
     "sass": "^1.56.1",
     "sass-loader": "^10.4.1",
+    "socket.io": "^4.5.3",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10",
@@ -39,6 +44,7 @@
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0",
     "prettier": "^2.7.1",
+    "push-dir": "^0.4.1",
     "webpack": "^4.0.0"
   }
 }

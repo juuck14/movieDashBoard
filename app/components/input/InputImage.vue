@@ -25,7 +25,6 @@ export default {
     },
     methods: {
         async thumbnail() {
-            console.log(this.$refs.file);
             const src = await this.$base64(this.$refs.file.files[0]).catch(console.error);
             this.$refs.default.classList.remove("d-flex")
             this.$refs.default.classList.add("d-none")

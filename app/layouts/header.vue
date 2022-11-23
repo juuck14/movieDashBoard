@@ -1,41 +1,56 @@
 <template>
     <div>
-        <div :class="'hamburger ' + ( show ? 'active' : '' )" ref="hamburger" @click="show = !show">
-            <div class="h1"></div>
-            <div class="h2"></div>
-            <div class="h3"></div>
+        <div class="header">{{movieInfo.movie_name}}
+            <div :class="'hamburger ' + ( show ? 'active' : '' )" ref="hamburger" @click="show = !show">
+                <div class="h1"></div>
+                <div class="h2"></div>
+                <div class="h3"></div>
+            </div>
         </div>
         
 
-        <div :class="'sidebar ' + ( show ? 'active' : '' )">
-            DORF
-        </div>
+        <SideBar :class="'sidebar ' + ( show ? 'active' : '' )" @closeSidebar="show = false"/>
         <div :class="'sidebarMask ' + ( show ? 'active' : '' )" @click="show = false"></div>
     </div>
 </template>
 
 <script>
+import SideBar from './sidebar.vue'
 export default {
+    components: {SideBar},
+    fetch() {
+        this.movieInfo = this.$store.state.movie
+    },
     data() {
         return {
-            show: false
+            show: false,
+            movieInfo: {}
         }
     },
 }
 </script>
 
 <style scoped>
-
+.header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #fdf4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 21px;
+    z-index: 1002;
+}
 .hamburger{
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: fixed;
-    top: 0;
     right: 21px;
     width: 21px;
     height: 42px;
-    z-index: 1002;
 }
 
 .hamburger.fadeIn{
@@ -86,24 +101,6 @@ export default {
     transform: rotate(-45deg)
 }
 
-.sidebar{
-    display: flex;
-    position: fixed;
-    height: 100vh;
-    background-color: var(--black);
-    top: 0;
-    right: 0;
-    z-index: 1001;
-    flex-direction: column;
-    font-size: 1.5rem;
-    padding: 20vh 4rem;
-    transform: translateX(100%);
-    transition: transform 0.35s ease;
-}
-
-.sidebar.active{
-    transform: translateX(0%);
-}
 
 .sidebarMask{
     display: none;
@@ -114,7 +111,7 @@ export default {
     height: 100vh;
     z-index: 1000;
     background-color: gray;
-    opacity: .1;
+    opacity: .3;
 }
 .sidebarMask.active{
     display: block;

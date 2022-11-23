@@ -1,3 +1,6 @@
+const bodyParser = require('body-parser');
+const session = require('./api/config/session');
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -38,10 +41,21 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    'nuxt-socket-io',
   ],
+  io: {
+    // module options
+    sockets: [{
+      name: 'main',
+      url: 'http://localhost:3001'
+    }]
+  },
   // express API 서버 등록
   serverMiddleware: [
-    '~/api/index.js'
+    '~/api',
+    bodyParser.json(),
+    // session middleware
+    session
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -52,4 +66,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  // target: 'static', // 정적 웹사이트임을 명시
+  // router: {
+  //   base: '/movieDashBoard/' // github repository 이름 넣기
+  // }
 }

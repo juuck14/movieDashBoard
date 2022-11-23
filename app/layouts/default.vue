@@ -1,7 +1,7 @@
 <template>
   <div id="app" style="overflow: hidden">
     <Header></Header>
-    <Nuxt />
+    <Nuxt class="content"/>
   </div>
 </template>
 
@@ -12,3 +12,10 @@ export default {
   components: {Header}
 }
 </script>
+
+<style scoped>
+.content{
+  margin-top: 50px;
+  background-color: #fdf4f4;
+}
+</style>

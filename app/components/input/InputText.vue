@@ -1,7 +1,8 @@
 <template>
     <div :style="'position: relative; margin-bottom: ' + this.marginBottom" >
         <input ref="inputText" :type="type" class="inputText" @input="$emit('input', $event.target.value)" :placeholder="this.realPlaceholder"
-        :style="this.placeholder ? ';' : ';padding-top: 0;' + this.styles" @focusin="togglePlaceholder('in')" @focusout="togglePlaceholder('out')"/>
+        :style="this.placeholder ? ';' : ';padding-top: 0;' + this.styles" @focusin="togglePlaceholder('in')" @focusout="togglePlaceholder('out')"
+        @keydown="enter($event)"/>
         <div ref="dynamicPlaceholder" :class="'dynamicPlaceholder' + (this.placeholder ? '' : ' d-none')">{{ this.placeholder }}</div>
     </div>
 </template>
@@ -14,6 +15,9 @@ export default {
         togglePlaceholder(type) {
             if(type === "in") this.$refs.dynamicPlaceholder.classList.add("on")
             else if(this.$refs.inputText.value == '') this.$refs.dynamicPlaceholder.classList.remove("on")
+        },
+        enter(event) {
+            if(event.which === 13) this.$emit('enter')
         }
     }
 }
