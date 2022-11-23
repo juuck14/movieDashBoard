@@ -47,7 +47,7 @@ export default {
     // module options
     sockets: [{
       name: 'main',
-      url: 'http://localhost:3001'
+      url: 'http://juuck14.link'
     }]
   },
   // express API 서버 등록
@@ -61,7 +61,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: "http://localhost:3000/api",
+    baseURL: "http://juuck14.link/api",
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
