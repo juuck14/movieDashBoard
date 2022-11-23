@@ -66,8 +66,8 @@ io.on('connection', async (socket) => { //웹 소켓 연결 시
 });
 
 
-server.listen(80, () => {
-    console.log('listening on *:80');
+server.listen(8080, () => {
+    console.log('listening on *:8080');
 });
 
 dotenv.config();
