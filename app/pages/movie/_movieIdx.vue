@@ -78,6 +78,8 @@ export default {
 
                 that.comments = [...that.comments, data]
                 this.$refs.text.$refs.inputText.value = ''
+                this.message = ''
+                this.$refs.text.$refs.inputText.focus()
                 setTimeout(() => {
                     window.scrollTo(0, document.body.scrollHeight);
                 })
@@ -88,6 +90,7 @@ export default {
             })
         },
         send() {
+            this.$refs.text.$refs.inputText.focus()
             this.socket.emit("send", { 
                 movie_idx: this.$route.params.movieIdx,
                 id: this.$store.state.auth.userId,
