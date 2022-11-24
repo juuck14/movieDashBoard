@@ -41,7 +41,6 @@ export default {
 }
 .inputText:focus{
     box-shadow: 0 10px 50px 5px rgb(0 0 0 / 10%);
-    background-color: #9a8a9e;
 }
 .dynamicPlaceholder{
     color: #9a8a9e;
