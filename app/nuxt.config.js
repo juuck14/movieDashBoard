@@ -70,4 +70,8 @@ export default {
   // router: {
   //   base: '/movieDashBoard/' // github repository 이름 넣기
   // }
+  server: {
+	      port: 8080, // default: 3000
+	      host: '0.0.0.0' // default: localhost
+	    }
 }
