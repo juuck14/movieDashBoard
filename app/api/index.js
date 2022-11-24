@@ -73,8 +73,8 @@ server.listen(8081, () => {
 dotenv.config();
 
 app.use(express.static(`${__dirname}/public`));
-app.use(bodyParser.json({ limit: '10mb' }));
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(morgan("dev"))
 
 const session = require('./config/session');
