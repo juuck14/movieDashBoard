@@ -21,8 +21,14 @@ const process = {
         const user = new User(req.body)
         const response = await user.login();
         if(response.success){
+		console.log(req.session);
             req.session.userId = req.body.id;
-            return res.json(response);
+		req.session.save(()=>{
+			console.log(req.session)
+
+			return res.json(response)
+		})
+            
         } else{
             return res.json(response);
         }

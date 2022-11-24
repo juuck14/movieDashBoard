@@ -79,7 +79,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(morgan("dev"))
 
 const corsOptions = {
-    origin: 'http://www.juuck14.link',
+    origin: 'http://juuck14.link',
     credentials: true
 }
 app.use(cors(corsOptions));

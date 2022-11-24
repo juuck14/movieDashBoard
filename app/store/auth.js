@@ -26,7 +26,7 @@ export const mutations = {
 
 export const actions = {
   async login({ commit }, { id, password, baseURL }) {
-    let { data } = await this.$axios.post(`${baseURL}/login`, { id, password })
+    let { data } = await this.$axios.post(`${baseURL}/login`, { id, password }, {withCredentials: true, credentials: 'include'})
     if (!data.success) {
       throw new Error(data.msg)
     }
