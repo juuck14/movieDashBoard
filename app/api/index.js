@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const dotenv = require('dotenv');
 const morgan = require('morgan')
+const cors = require('cors');
 
 const app = express();
 const http = require('http');
@@ -76,6 +77,12 @@ app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(morgan("dev"))
+
+const corsOptions = {
+    origin: 'http://www.juuck14.link',
+    credentials: true
+}
+app.use(cors(corsOptions));
 
 const session = require('./config/session');
 app.use(session)
