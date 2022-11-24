@@ -54,7 +54,8 @@ export default {
             this.socket = this.$nuxtSocket({
                 name: 'main',
                 channel: '/', 
-                emitTimeout: 1000
+                emitTimeout: 1000,
+                cors: { origin: '*' }
             })
 
             this.socket.emit('joinRoomServer', { 
