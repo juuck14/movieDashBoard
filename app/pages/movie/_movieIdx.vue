@@ -102,6 +102,9 @@ export default {
     },
     mounted() {
         this.makeIO();
+        setTimeout(() => {
+            window.scrollTo(0, document.body.scrollHeight);
+        })
     }
 }
 </script>
