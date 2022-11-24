@@ -60,7 +60,7 @@ export default {
 
             this.socket.emit('joinRoomServer', { 
                 room: this.$route.params.movieIdx,
-                id: 'q',
+                id: this.$store.state.auth.userId,
                 regdate: new Date()
             })
 
