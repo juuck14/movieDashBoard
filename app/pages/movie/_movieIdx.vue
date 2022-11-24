@@ -79,7 +79,6 @@ export default {
                 that.comments = [...that.comments, data]
                 this.$refs.text.$refs.inputText.value = ''
                 this.message = ''
-                this.$refs.text.$refs.inputText.focus()
                 setTimeout(() => {
                     window.scrollTo(0, document.body.scrollHeight);
                 })
